@@ -17,7 +17,7 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1) == true)
+        if (Input.GetMouseButtonDown(0) == true)
         {
             Instantiate(Prefab);
             Prefab.transform.position = Spawn.transform.position;
