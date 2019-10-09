@@ -21,6 +21,7 @@ public class Shoot : MonoBehaviour
         {
             Instantiate(Prefab);
             Prefab.transform.position = Spawn.transform.position;
+            //Prefab.transform.rotation.y = Prefab.transform.rotation.y + 90;
         }
     }
 }
