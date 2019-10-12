@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class shiftMechanic : MonoBehaviour
 {
-    GameObject shift;
+    public GameObject shift;
     public bool active;
     // Start is called before the first frame update
     void Start()
     {
-        shift.GetComponent<GameObject>();
     }
 
     // Update is called once per frame
