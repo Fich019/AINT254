@@ -8,10 +8,11 @@ public class Movement : MonoBehaviour
     public float jumpHeight = 2f;
 
     public Vector3 jump;
-    private float x;
+    //private float x;
     private GameObject player;
     public bool isGrounded;
     Rigidbody rb;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,11 +32,19 @@ public class Movement : MonoBehaviour
         isGrounded = false;
     }
 
+
     // Update is called once per frame
     void Update()
     {
-        x = Input.GetAxis("Horizontal") * speed;
-        player.transform.Translate(x, 0, 0);
+        //x = Input.GetAxis("Horizontal") * speed;
+
+        if (Input.GetKey(KeyCode.D)){
+            player.transform.Translate(speed, 0, 0);
+        }
+        if (Input.GetKey(KeyCode.A)){
+            player.transform.Translate(-speed, 0, 0);
+        }
+
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true){
             rb.AddForce(jump * jumpHeight, ForceMode.Impulse);
