@@ -26,6 +26,11 @@ public class Movement : MonoBehaviour
         isGrounded = true;
     }
 
+    private void OnCollisionExit()
+    {
+        isGrounded = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
