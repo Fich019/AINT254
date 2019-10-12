@@ -19,7 +19,7 @@ public class Movement : MonoBehaviour
     {
         x = Input.GetAxis("Horizontal") * speed;
         y = Input.GetAxis("Vertical") * speed;
-        player.transform.Translate(x, 0, y);
+        player.transform.Translate(x, y, 0);
 
     }
 }
