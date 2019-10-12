@@ -244,6 +244,16 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2403999316230061794, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 376451773036190237, guid: c6453f8e1f814744d8b94e5a6d1f9942,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6453f8e1f814744d8b94e5a6d1f9942, type: 3}
 --- !u!1 &46333489
@@ -1047,7 +1057,7 @@ SpringJoint:
   m_Tolerance: 0.025
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
@@ -1274,7 +1284,7 @@ SpringJoint:
   m_Tolerance: 0.025
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
@@ -1408,7 +1418,7 @@ SpringJoint:
   m_Tolerance: 0.025
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
@@ -1753,7 +1763,7 @@ HingeJoint:
     bounciness: 0.2
     bounceMinVelocity: 0.2
     contactDistance: 0
-  m_BreakForce: 3
+  m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
@@ -1962,7 +1972,7 @@ SpringJoint:
   m_Tolerance: 0.025
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
