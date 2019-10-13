@@ -5,9 +5,11 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float speed = 10f;
-    public float jumpHeight = 2f;
+    public float jumpVel = 2f;
 
-    public Vector3 jump;
+    public float fallMultiplier = 3.5f;
+
+    //public Vector3 jump;
     //private float x;
     private GameObject player;
     public bool isGrounded;
@@ -19,7 +21,7 @@ public class Movement : MonoBehaviour
     {
         player = this.gameObject;
         rb = GetComponent<Rigidbody>();
-        jump = new Vector3(0.0f, jumpHeight, 0.0f);
+        //jump = new Vector3(0.0f, jumpVel, 0.0f);
     }
 
     private void OnCollisionStay()
@@ -47,8 +49,13 @@ public class Movement : MonoBehaviour
 
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true){
-            rb.AddForce(jump * jumpHeight, ForceMode.Impulse);
+            rb.velocity = Vector3.up * jumpVel;
             isGrounded = false;
+        }
+
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
 
     }
