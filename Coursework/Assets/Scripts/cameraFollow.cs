@@ -18,10 +18,14 @@ public class cameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+    private void FixedUpdate()
+    {
         float x = Mathf.Clamp(player.position.x, xMin, xMax);
         float y = Mathf.Clamp(player.position.y, yMin, yMax);
 
         transform.position = new Vector3(x, y + 1f, -distance);
-
     }
 }
