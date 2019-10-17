@@ -452,7 +452,7 @@ MonoBehaviour:
   distance: 35
   height: 2.5
   xMin: -40
-  xMax: 60
+  xMax: 75
   yMin: 0
   yMax: 120
 --- !u!1 &1005462965
