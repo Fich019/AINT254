@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
 
     public float fallMultiplier = 3.5f;
 
-    //public Vector3 jump;
+    public Vector3 jump;
     //private float x;
     private GameObject player;
     public bool isGrounded;
@@ -40,16 +40,42 @@ public class Movement : MonoBehaviour
     {
         //x = Input.GetAxis("Horizontal") * speed;
 
-        if (Input.GetKey(KeyCode.D)){
+        //if (Input.GetKey(KeyCode.D)){
+        //    player.transform.Translate(speed, 0, 0);
+        //}
+        //if (Input.GetKey(KeyCode.A)){
+        //    player.transform.Translate(-speed, 0, 0);
+        //}
+
+
+        //if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true){
+        //    rb.velocity = Vector3.up * jumpVel;
+        //    isGrounded = false;
+        //}
+
+        //if (rb.velocity.y < 0)
+        //{
+        //    rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        //}
+
+    }
+
+    private void FixedUpdate()
+    {
+        if (Input.GetKey(KeyCode.D))
+        {
             player.transform.Translate(speed, 0, 0);
         }
-        if (Input.GetKey(KeyCode.A)){
+        if (Input.GetKey(KeyCode.A))
+        {
             player.transform.Translate(-speed, 0, 0);
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true){
-            rb.velocity = Vector3.up * jumpVel;
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
+        {
+            //rb.AddForce(Vector3.up * jumpVel, ForceMode.Impulse);
+            rb.velocity = Vector3.up * jumpVel; //jumpvel = 21
             isGrounded = false;
         }
 
@@ -57,6 +83,5 @@ public class Movement : MonoBehaviour
         {
             rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
-
     }
 }

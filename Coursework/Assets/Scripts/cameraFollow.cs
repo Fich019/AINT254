@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class cameraFollow : MonoBehaviour
 {
+    //Camera horizontal, fov = 35, distance = 55, height = 2.5
     public Transform player;
     public float distance, height;
     public float xMin, xMax;
@@ -20,7 +21,7 @@ public class cameraFollow : MonoBehaviour
         float x = Mathf.Clamp(player.position.x, xMin, xMax);
         float y = Mathf.Clamp(player.position.y, yMin, yMax);
 
-        transform.position = new Vector3(x, height, -distance);
+        transform.position = new Vector3(x, y + 1f, -distance);
 
     }
 }
