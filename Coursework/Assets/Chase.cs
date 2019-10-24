@@ -23,6 +23,12 @@ public class Chase : MonoBehaviour
         float newHeight = player.transform.position.y;
         isGrounded = player.GetComponent<Movement>().isGrounded;
 
+        transform.position = new Vector3(player.transform.position.x, transform.position.y, 0);
+        if (player.transform.position.y > 1.5 && isGrounded == true)
+        {
+            transform.position = new Vector3(player.transform.position.x, player.transform.position.y, 0);
+        }
+
         //if (player.transform.position.y > 1.5 && isGrounded == true)
         //{
 
@@ -35,13 +41,14 @@ public class Chase : MonoBehaviour
         //    //    transform.position = new Vector3(player.transform.position.x, newHeight, 0);
         //    //}
 
-        //    if (Input.GetKey(KeyCode.Space))
+        //    if (Input.GetKeyDown(KeyCode.Space))
         //    {
         //        transform.position = new Vector3(player.transform.position.x, newHeight, 0);
         //    }
         //    else
         //    {
         //        transform.position = new Vector3(player.transform.position.x, player.transform.position.y, 0);
+        //        isGrounded = false;
         //    }
         //}
         //else if (player.transform.position.y == 1.5f) //only checking when space is released and is grounded is true
@@ -50,7 +57,8 @@ public class Chase : MonoBehaviour
         //}
 
 
-        transform.position = new Vector3(player.transform.position.x, newHeight + 2, 0);
+
+        //transform.position = new Vector3(player.transform.position.x, newHeight + 2, 0);
 
 
 
