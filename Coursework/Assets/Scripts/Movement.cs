@@ -113,6 +113,8 @@ public class Movement : MonoBehaviour
             {
                 isSliding = false;
                 speed = startspeed;
+
+                //https://answers.unity.com/questions/374157/character-controller-slide-action-script.html
             }
         }
 

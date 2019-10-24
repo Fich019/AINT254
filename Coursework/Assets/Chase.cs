@@ -23,34 +23,34 @@ public class Chase : MonoBehaviour
         float newHeight = player.transform.position.y;
         isGrounded = player.GetComponent<Movement>().isGrounded;
 
-        if (player.transform.position.y > 1.5 && isGrounded == true)
-        {
+        //if (player.transform.position.y > 1.5 && isGrounded == true)
+        //{
 
-            //if (Input.GetKey(KeyCode.Space))
-            //{
-            //    transform.position = new Vector3(player.transform.position.x, newHeight, 0);
-            //}
-            //else
-            //{
-            //    transform.position = new Vector3(player.transform.position.x, newHeight, 0);
-            //}
+        //    //if (Input.GetKey(KeyCode.Space))
+        //    //{
+        //    //    transform.position = new Vector3(player.transform.position.x, newHeight, 0);
+        //    //}
+        //    //else
+        //    //{
+        //    //    transform.position = new Vector3(player.transform.position.x, newHeight, 0);
+        //    //}
 
-            if (Input.GetKey(KeyCode.Space))
-            {
-                transform.position = new Vector3(player.transform.position.x, newHeight, 0);
-            }
-            else
-            {
-                transform.position = new Vector3(player.transform.position.x, player.transform.position.y, 0);
-            }
-        }
-        else if (player.transform.position.y == 1.5f) //only checking when space is released and is grounded is true
-        {
-            transform.position = new Vector3(player.transform.position.x, 1.5f, 0);
-        }
+        //    if (Input.GetKey(KeyCode.Space))
+        //    {
+        //        transform.position = new Vector3(player.transform.position.x, newHeight, 0);
+        //    }
+        //    else
+        //    {
+        //        transform.position = new Vector3(player.transform.position.x, player.transform.position.y, 0);
+        //    }
+        //}
+        //else if (player.transform.position.y == 1.5f) //only checking when space is released and is grounded is true
+        //{
+        //    transform.position = new Vector3(player.transform.position.x, 1.5f, 0);
+        //}
 
 
-        //transform.position = new Vector3(player.transform.position.x, newHeight, 0);
+        transform.position = new Vector3(player.transform.position.x, newHeight + 2, 0);
 
 
 
