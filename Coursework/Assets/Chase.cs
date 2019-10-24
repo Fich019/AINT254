@@ -26,7 +26,7 @@ public class Chase : MonoBehaviour
         transform.position = new Vector3(player.transform.position.x, transform.position.y, 0);
         if (player.transform.position.y > 1.5 && isGrounded == true)
         {
-            transform.position = new Vector3(player.transform.position.x, player.transform.position.y, 0);
+            transform.position = new Vector3(player.transform.position.x, player.transform.position.y - 0.38111f, 0);
         }
 
         //if (player.transform.position.y > 1.5 && isGrounded == true)
