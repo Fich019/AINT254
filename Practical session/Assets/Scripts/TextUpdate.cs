@@ -16,7 +16,7 @@ public class TextUpdate : MonoBehaviour
 	// Update is called once per frame
 	public void UpdateText(float _value)
     {
-        int sliderVal =(int)( _value * 100);
+        int sliderVal =(int)( _value + 80);
 
         m_text.text = sliderVal.ToString() + " %";
 	}

@@ -411,7 +411,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -7919874357566406253, guid: 9bb9c8228fd749748acbcb8aa20d60ef,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 5214c091f2995814391ac760c94d6f89, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a24cbe3ddf31df7439ace12f3bae461d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -620,6 +620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f852e4b39448dbd46939cccf88908093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_soundManager: {fileID: 1972924728}
 --- !u!225 &504687557
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1102,8 +1103,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 1630364792}
   m_HandleRect: {fileID: 1053580012}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 20
   m_WholeNumbers: 0
   m_Value: 0.5
   m_OnValueChanged:
@@ -1122,10 +1123,10 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1972924728}
         m_MethodName: SetMusicVolume
-        m_Mode: 2
+        m_Mode: 0
         m_Arguments:
-          m_ObjectArgument: {fileID: 1878562264}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1204,6 +1205,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_audioMixer: {fileID: 24100000, guid: 9bb9c8228fd749748acbcb8aa20d60ef, type: 2}
+  m_gameMode: {fileID: 99061875067055524, guid: 9bb9c8228fd749748acbcb8aa20d60ef,
+    type: 2}
+  m_menuMode: {fileID: -2773439997467138035, guid: 9bb9c8228fd749748acbcb8aa20d60ef,
+    type: 2}
 --- !u!4 &1972924729
 Transform:
   m_ObjectHideFlags: 0
