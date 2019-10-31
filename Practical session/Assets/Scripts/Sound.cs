@@ -5,6 +5,7 @@ public class Sound : MonoBehaviour
 {
     private int m_qSamples = 1024;        // array size - number of samples
     private float m_rmsValue;             // sound level - RMS (root mean squared)
+    public float zaxis;
     [SerializeField]
     private float m_scaleSample = 2.0f;   // set how much the scale will vary
 
@@ -13,6 +14,8 @@ public class Sound : MonoBehaviour
     private float[] m_samples;            //the array - samples we're getting
 
     private float m_scaleY = 0;           //original scale on y
+
+    private float timer = 0;
 
     // Use this for initialization
     void Start()
@@ -25,6 +28,14 @@ public class Sound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
+
+        if (timer > 0.5f)
+        {
+            ChangeSound();
+            timer = 0;
+        }
+
         AnalyzeSound(); //we analyse the sound
 
         //we scale the object on y based on m_rmsValue
@@ -32,7 +43,7 @@ public class Sound : MonoBehaviour
         scale.y = m_scaleY + m_scaleSample * m_rmsValue;
         transform.localScale = scale;
 
-        Vector3 pos = new Vector3(0, transform.localScale.y * 0.5f, 0);
+        Vector3 pos = new Vector3(0, transform.localScale.y * 0.5f, zaxis);
 
         transform.position = pos;
     }
@@ -53,5 +64,13 @@ public class Sound : MonoBehaviour
 
         //formula for sound level
         m_rmsValue = Mathf.Sqrt(sum / m_qSamples);
+    }
+
+    public void ChangeSound()
+    {
+       
+
+        m_scaleSample = Random.Range(2f, 10f);
+        
     }
 }
