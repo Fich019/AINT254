@@ -15,7 +15,6 @@ public class newLap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -32,5 +31,7 @@ public class newLap : MonoBehaviour
         {
             levelComplete = false;
         }
+
+        GetComponent<Collider>().enabled = false;
     }
 }
