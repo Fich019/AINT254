@@ -86,7 +86,7 @@ public class Movement : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
+        if (Input.GetKey(KeyCode.Space) && isGrounded == true)
         {
             //rb.AddForce(Vector3.up * jumpVel, ForceMode.Impulse);
             rb.velocity = Vector3.up * jumpVel; //jumpvel = 21
