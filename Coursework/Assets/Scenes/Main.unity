@@ -1598,9 +1598,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curlapText: {fileID: 411024939}
   prevlapText: {fileID: 1413173895}
-  lap: {fileID: 2076750005}
   timer: 0
-  levelComplete: 0
+  lap: {fileID: 2076750009}
 --- !u!4 &1521005564
 Transform:
   m_ObjectHideFlags: 0
@@ -1973,6 +1972,7 @@ GameObject:
   - component: {fileID: 2076750007}
   - component: {fileID: 2076750006}
   - component: {fileID: 2076750005}
+  - component: {fileID: 2076750009}
   m_Layer: 0
   m_Name: Lap
   m_TagString: Lap
@@ -2053,6 +2053,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2076750009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076750004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008e9a11fd83a0941bd7b7b13996235b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelComplete: 0
 --- !u!1 &2134761449
 GameObject:
   m_ObjectHideFlags: 0

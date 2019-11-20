@@ -14,15 +14,16 @@ public class RaceTimer : MonoBehaviour
 
     [SerializeField] private Text curlapText;
     [SerializeField] private Text prevlapText;
-    [SerializeField] private Collider lap;
 
     [SerializeField] private double timer;
 
-    public bool levelComplete;
+    public newLap lap;
 
     // Update is called once per frame
     void Update()
     {
+        bool levelComplete = lap.levelComplete;
+
         timer += Time.deltaTime;
 
         if (levelComplete == true)
@@ -42,21 +43,5 @@ public class RaceTimer : MonoBehaviour
     {
         TimeSpan ts = TimeSpan.FromSeconds(timer);
         prevlapText.text = ts.ToString();
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Lap")
-        {
-            levelComplete = true;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Lap")
-        {
-            levelComplete = false;
-        }
     }
 }
