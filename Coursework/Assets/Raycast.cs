@@ -6,6 +6,7 @@ public class Raycast : MonoBehaviour
 {
     
     public GameObject raycam;
+    //GameObject [] platform;
     public float rayDistance = 100;
     public bool isGrounded;
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class Raycast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //platform = GameObject.FindGameObjectsWithTag("Platform");
         isGrounded = GetComponent<Movement>().isGrounded;
 
         if (isGrounded == true)
@@ -24,7 +26,7 @@ public class Raycast : MonoBehaviour
             RaycastHit hit;
             Ray ray = new Ray(transform.position, -transform.up);
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, rayDistance))
             {
                 var hitPlatform = hit.transform;
                 raycam.transform.position = new Vector3(raycam.transform.position.x, hit.transform.position.y + 2.5f + (hit.transform.localScale.y / 2), raycam.transform.position.z);
@@ -33,6 +35,7 @@ public class Raycast : MonoBehaviour
         }
         else
         {
+
             Vector3 preHeight = raycam.transform.position;
             raycam.transform.position = preHeight;
         }

@@ -220,7 +220,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -810, y: 286}
+  m_AnchoredPosition: {x: -813, y: 210}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &411024939
@@ -843,7 +843,7 @@ GameObject:
   - component: {fileID: 922955078}
   m_Layer: 0
   m_Name: shiftA
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1466,7 +1466,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -810, y: 227}
+  m_AnchoredPosition: {x: -810, y: 139}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1413173895
@@ -2224,7 +2224,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134761449}
   serializedVersion: 2
-  m_Mass: 15
+  m_Mass: 17
   m_Drag: 3
   m_AngularDrag: 3
   m_UseGravity: 1
@@ -2244,11 +2244,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ffd5577a5c21974cac81d118f199345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.25
-  jumpVel: 21
+  speed: 0.3
+  jumpVel: 23
   slideSpeed: 1
   slideTimerMax: 0.2
-  fallMultiplier: 4.5
+  fallMultiplier: 10
   jump: {x: 0, y: 0, z: 0}
   isGrounded: 0
   isSliding: 0
@@ -2280,5 +2280,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raycam: {fileID: 1172427832}
-  rayDistance: 100
+  rayDistance: 2
   isGrounded: 0
