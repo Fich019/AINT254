@@ -60,7 +60,7 @@ public class Chase : MonoBehaviour
 
         //transform.position = new Vector3(player.transform.position.x, newHeight + 2, 0);
 
-
+       
 
     }
 

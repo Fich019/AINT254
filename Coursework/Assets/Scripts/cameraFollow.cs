@@ -6,6 +6,7 @@ public class cameraFollow : MonoBehaviour
 {
     //Camera horizontal, fov = 35, distance = 55, height = 2.5
     public Transform player;
+    public GameObject playergame;
     public float distance, height;
     public float xMin, xMax;
     public float yMin, yMax;
@@ -23,9 +24,10 @@ public class cameraFollow : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         float x = Mathf.Clamp(player.position.x, xMin, xMax);
         float y = Mathf.Clamp(player.position.y, yMin, yMax);
 
-        transform.position = new Vector3(x, y + 1f, -distance);
+        transform.position = new Vector3(x, playergame.GetComponent<Raycast>().raycam.transform.position.y, -distance);
     }
 }
