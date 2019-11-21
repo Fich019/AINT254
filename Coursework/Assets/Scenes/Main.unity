@@ -2616,7 +2616,7 @@ PrefabInstance:
     - target: {fileID: 3055750609069693384, guid: f970a76cc8252df4db89a411e3e266ca,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1258.8
+      value: 1256
       objectReference: {fileID: 0}
     - target: {fileID: 3055750609069693384, guid: f970a76cc8252df4db89a411e3e266ca,
         type: 3}
@@ -3417,6 +3417,7 @@ MonoBehaviour:
   slideSpeed: 1
   slideTimerMax: 0.2
   fallMultiplier: 10
+  main: 
   jump: {x: 0, y: 0, z: 0}
   isGrounded: 0
   isSliding: 0

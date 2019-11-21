@@ -50,6 +50,12 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.Space) && isGrounded == true)
+        {
+            //rb.AddForce(Vector3.up * jumpVel, ForceMode.Impulse);
+            rb.velocity = Vector3.up * jumpVel; //jumpvel = 21
+            isGrounded = false;
+        }
         //x = Input.GetAxis("Horizontal") * speed;
 
         //if (Input.GetKey(KeyCode.D)){
@@ -94,12 +100,12 @@ public class Movement : MonoBehaviour
             SceneManager.LoadScene(main, LoadSceneMode.Single);
         }
 
-        if (Input.GetKey(KeyCode.Space) && isGrounded == true)
-        {
-            //rb.AddForce(Vector3.up * jumpVel, ForceMode.Impulse);
-            rb.velocity = Vector3.up * jumpVel; //jumpvel = 21
-            isGrounded = false;
-        }
+        //if (Input.GetKey(KeyCode.Space) && isGrounded == true)
+        //{
+        //    //rb.AddForce(Vector3.up * jumpVel, ForceMode.Impulse);
+        //    rb.velocity = Vector3.up * jumpVel; //jumpvel = 21
+        //    isGrounded = false;
+        //}
 
         if (rb.velocity.y < 0)
         {
