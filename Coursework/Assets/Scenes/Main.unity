@@ -2180,7 +2180,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172427832}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99ef7c5e2a9afb74f8dbeb154ff62972, type: 3}
   m_Name: 
@@ -2209,8 +2209,12 @@ MonoBehaviour:
   player: {fileID: 2134761449}
   movement: {fileID: 2134761455}
   smoothTime: 0.6
-  rayDistance: 2
   isGrounded: 0
+  rayDistance: 2
+  distance: 35
+  height: 7
+  xMin: -40
+  xMax: 300
 --- !u!1001 &1257078124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3446,5 +3450,9 @@ MonoBehaviour:
   player: {fileID: 0}
   movement: {fileID: 0}
   smoothTime: 0.6
-  rayDistance: 2
   isGrounded: 0
+  rayDistance: 2
+  distance: 0
+  height: 0
+  xMin: 0
+  xMax: 0

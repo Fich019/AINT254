@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Movement : MonoBehaviour
     private Vector3 direction;
 
     public float fallMultiplier;
+    public string main;
 
     public Vector3 jump;
     //private float x;
@@ -30,6 +32,7 @@ public class Movement : MonoBehaviour
         startspeed = speed;
         player = this.gameObject;
         rb = GetComponent<Rigidbody>();
+        main = SceneManager.GetActiveScene().name;
         //jump = new Vector3(0.0f, jumpVel, 0.0f);
     }
 
@@ -72,6 +75,7 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
 
+
         if (Input.GetKey(KeyCode.D))
         {
             player.transform.Translate(speed, 0, 0);
@@ -85,6 +89,10 @@ public class Movement : MonoBehaviour
 
         }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(main, LoadSceneMode.Single);
+        }
 
         if (Input.GetKey(KeyCode.Space) && isGrounded == true)
         {

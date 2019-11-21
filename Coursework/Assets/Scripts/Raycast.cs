@@ -10,8 +10,12 @@ public class Raycast : MonoBehaviour
     //GameObject [] platform;
     public float smoothTime;
     private Vector3 velocity = Vector3.zero;
-    public float rayDistance;
     public bool isGrounded;
+
+
+    public float rayDistance, distance, height;
+    public float xMin, xMax;
+    //public float yMin, yMax;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,19 +25,23 @@ public class Raycast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+    private void FixedUpdate()
+    {
         //platform = GameObject.FindGameObjectsWithTag("Platform");
         isGrounded = movement.isGrounded;
-        Vector3 preHeight = transform.position;
+        Vector3 preHeight = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
         if (isGrounded == true)
         {
             RaycastHit hit;
-            Ray ray = new Ray(player.transform.position, player.transform.up *-1);
+            Ray ray = new Ray(player.transform.position, player.transform.up * -1);
 
             if (Physics.Raycast(ray, out hit, rayDistance))
             {
                 var hitPlatform = hit.transform;
-                Vector3 targetPosition = new Vector3(transform.position.x, (hit.transform.position.y + 2.5f + (hit.transform.localScale.y / 2)), transform.position.z);
+                Vector3 targetPosition = new Vector3(transform.position.x, (hit.transform.position.y + height + (hit.transform.localScale.y / 2)), transform.position.z);
                 transform.position = Vector3.SmoothDamp(preHeight, targetPosition, ref velocity, smoothTime);
             }
 
@@ -44,6 +52,16 @@ public class Raycast : MonoBehaviour
             transform.position = Vector3.SmoothDamp(preHeight, test, ref velocity, smoothTime);
         }
 
+
+        float x = Mathf.Clamp(player.transform.position.x, xMin, xMax);
+        //float y = Mathf.Clamp(player.transform.position.y, yMin, yMax);
+
+        Vector3 tPosition = new Vector3(x, transform.position.y, -distance); //playergame.GetComponent<Raycast>().raycam.transform.position.y
+        Vector3 origin = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        transform.position = Vector3.SmoothDamp(origin, tPosition, ref velocity, smoothTime);
+
+
+
         //if (Physics.Raycast(transform.position, transform.TransformDirection(-transform.up), out ray, rayDistance))
         //{
         //    Debug.DrawRay(transform.position, transform.TransformDirection(-transform.up) * ray.distance, Color.yellow);
@@ -52,8 +70,6 @@ public class Raycast : MonoBehaviour
         //        Debug.Log(ray.point);
         //    }
         //}
-
-        
     }
-    
+
 }
