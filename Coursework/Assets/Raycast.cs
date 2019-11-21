@@ -7,7 +7,9 @@ public class Raycast : MonoBehaviour
     
     public GameObject raycam;
     //GameObject [] platform;
-    public float rayDistance = 100;
+    public float smoothTime;
+    private Vector3 velocity = Vector3.zero;
+    public float rayDistance;
     public bool isGrounded;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,7 @@ public class Raycast : MonoBehaviour
     {
         //platform = GameObject.FindGameObjectsWithTag("Platform");
         isGrounded = GetComponent<Movement>().isGrounded;
+        Vector3 preHeight = raycam.transform.position;
 
         if (isGrounded == true)
         {
@@ -29,15 +32,15 @@ public class Raycast : MonoBehaviour
             if (Physics.Raycast(ray, out hit, rayDistance))
             {
                 var hitPlatform = hit.transform;
-                raycam.transform.position = new Vector3(raycam.transform.position.x, hit.transform.position.y + 2.5f + (hit.transform.localScale.y / 2), raycam.transform.position.z);
+                Vector3 targetPosition = new Vector3(raycam.transform.position.x, (hit.transform.position.y + 2.5f + (hit.transform.localScale.y / 2)), raycam.transform.position.z);
+                raycam.transform.position = Vector3.SmoothDamp(preHeight, targetPosition, ref velocity, smoothTime);
             }
 
         }
         else
         {
-
-            Vector3 preHeight = raycam.transform.position;
-            raycam.transform.position = preHeight;
+            Vector3 test = new Vector3(transform.position.x, preHeight.y, preHeight.z);
+            raycam.transform.position = Vector3.SmoothDamp(preHeight, test, ref velocity, smoothTime);
         }
 
         //if (Physics.Raycast(transform.position, transform.TransformDirection(-transform.up), out ray, rayDistance))
