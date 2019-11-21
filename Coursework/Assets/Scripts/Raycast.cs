@@ -5,7 +5,8 @@ using UnityEngine;
 public class Raycast : MonoBehaviour
 {
     
-    public GameObject raycam;
+    public GameObject player;
+    public Movement movement;
     //GameObject [] platform;
     public float smoothTime;
     private Vector3 velocity = Vector3.zero;
@@ -21,26 +22,26 @@ public class Raycast : MonoBehaviour
     void Update()
     {
         //platform = GameObject.FindGameObjectsWithTag("Platform");
-        isGrounded = GetComponent<Movement>().isGrounded;
-        Vector3 preHeight = raycam.transform.position;
+        isGrounded = movement.isGrounded;
+        Vector3 preHeight = transform.position;
 
         if (isGrounded == true)
         {
             RaycastHit hit;
-            Ray ray = new Ray(transform.position, -transform.up);
+            Ray ray = new Ray(player.transform.position, player.transform.up *-1);
 
             if (Physics.Raycast(ray, out hit, rayDistance))
             {
                 var hitPlatform = hit.transform;
-                Vector3 targetPosition = new Vector3(raycam.transform.position.x, (hit.transform.position.y + 2.5f + (hit.transform.localScale.y / 2)), raycam.transform.position.z);
-                raycam.transform.position = Vector3.SmoothDamp(preHeight, targetPosition, ref velocity, smoothTime);
+                Vector3 targetPosition = new Vector3(transform.position.x, (hit.transform.position.y + 2.5f + (hit.transform.localScale.y / 2)), transform.position.z);
+                transform.position = Vector3.SmoothDamp(preHeight, targetPosition, ref velocity, smoothTime);
             }
 
         }
         else
         {
-            Vector3 test = new Vector3(transform.position.x, preHeight.y, preHeight.z);
-            raycam.transform.position = Vector3.SmoothDamp(preHeight, test, ref velocity, smoothTime);
+            Vector3 test = new Vector3(player.transform.position.x, preHeight.y, preHeight.z);
+            transform.position = Vector3.SmoothDamp(preHeight, test, ref velocity, smoothTime);
         }
 
         //if (Physics.Raycast(transform.position, transform.TransformDirection(-transform.up), out ray, rayDistance))

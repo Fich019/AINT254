@@ -2150,6 +2150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1172427833}
   - component: {fileID: 1172427834}
+  - component: {fileID: 1172427835}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -2193,6 +2194,23 @@ MonoBehaviour:
   xMax: 300
   yMin: 0
   yMax: 700
+--- !u!114 &1172427835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172427832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f1f95498352e247b8aedd670609eb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2134761449}
+  movement: {fileID: 2134761455}
+  smoothTime: 0.6
+  rayDistance: 2
+  isGrounded: 0
 --- !u!1001 &1257078124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3420,12 +3438,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134761449}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00f1f95498352e247b8aedd670609eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raycam: {fileID: 1172427832}
+  player: {fileID: 0}
+  movement: {fileID: 0}
   smoothTime: 0.6
   rayDistance: 2
   isGrounded: 0

@@ -30,7 +30,7 @@ public class cameraFollow : MonoBehaviour
         float x = Mathf.Clamp(player.position.x, xMin, xMax);
         float y = Mathf.Clamp(player.position.y, yMin, yMax);
 
-        Vector3 targetPosition = new Vector3(x, playergame.GetComponent<Raycast>().raycam.transform.position.y, -distance);
+        Vector3 targetPosition = new Vector3(x, transform.position.y, -distance); //playergame.GetComponent<Raycast>().raycam.transform.position.y
         Vector3 origin = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         transform.position = Vector3.SmoothDamp(origin, targetPosition, ref velocity, smoothTime);
     }
