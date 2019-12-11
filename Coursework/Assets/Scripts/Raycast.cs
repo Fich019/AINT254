@@ -52,7 +52,11 @@ public class Raycast : MonoBehaviour
             transform.position = Vector3.SmoothDamp(preHeight, test, ref velocity, smoothTime);
         }
 
-
+        if (Input.GetKey(KeyCode.S))
+        {
+            Vector3 minusHeight = new Vector3(transform.position.x, transform.position.y - height * 2, transform.position.z);
+            transform.position = Vector3.SmoothDamp(preHeight, minusHeight, ref velocity, smoothTime);
+        }
         float x = Mathf.Clamp(player.transform.position.x, xMin, xMax);
         //float y = Mathf.Clamp(player.transform.position.y, yMin, yMax);
 

@@ -56,6 +56,29 @@ public class Movement : MonoBehaviour
             rb.velocity = Vector3.up * jumpVel; //jumpvel = 21
             isGrounded = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftControl) && isGrounded == true && !isSliding)
+        {
+            slideTimer = 0;
+            isSliding = true;
+        }
+        if (isSliding == true)
+        {
+            speed = slideSpeed;
+            rb.AddForce(direction * speed, ForceMode.Impulse);
+            transform.localScale = new Vector3(1.5f,0.75f,1f);
+            transform.position = new Vector3(transform.position.x, 0.75f, 0);
+
+            slideTimer += Time.deltaTime;
+            if (slideTimer > slideTimerMax)
+            {
+                isSliding = false;
+                speed = startspeed;
+                transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+
+                //https://answers.unity.com/questions/374157/character-controller-slide-action-script.html
+            }
+        }
         //x = Input.GetAxis("Horizontal") * speed;
 
         //if (Input.GetKey(KeyCode.D)){
@@ -111,29 +134,7 @@ public class Movement : MonoBehaviour
         {
             rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
-
-        if (Input.GetKeyDown(KeyCode.LeftControl) && isGrounded == true && !isSliding)
-        {
-            slideTimer = 0;
-            isSliding = true;
-        }
-        if (isSliding == true)
-        {
-            speed = slideSpeed;
-            rb.AddForce(direction * speed, ForceMode.Impulse);
-
-            slideTimer += Time.deltaTime;
-            if (slideTimer > slideTimerMax)
-            {
-                isSliding = false;
-                speed = startspeed;
-
-                //https://answers.unity.com/questions/374157/character-controller-slide-action-script.html
-            }
-        }
-
-
-
+        
     }
 
     private void sMov()
