@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class newLap : MonoBehaviour
+public class lap2 : MonoBehaviour
 {
     public bool levelComplete;
     public GameObject lap;
@@ -10,7 +10,7 @@ public class newLap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
