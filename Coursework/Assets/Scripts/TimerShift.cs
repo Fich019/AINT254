@@ -7,16 +7,27 @@ public class TimerShift : MonoBehaviour
     
     public float timerMax;
     public GameObject shift;
+    public float customTimer = 0;
+    bool currentState;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("shiftOn", 0f, 4f);
+        currentState = shift.activeSelf;
+        //InvokeRepeating("shiftOn", 0f, 4f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Invoke("shiftOff", timerMax);
+        //Invoke("shiftOff", timerMax);
+        customTimer += Time.deltaTime;
+
+        if(customTimer >= timerMax)
+        {
+            ShiftState();
+            customTimer = 0;
+        }
+
     }
 
     public void shiftOn()
@@ -27,5 +38,11 @@ public class TimerShift : MonoBehaviour
     public void shiftOff()
     {
         shift.SetActive(false);
+    }
+
+    private void ShiftState()
+    {
+        shift.SetActive(!currentState);
+        currentState = !currentState;
     }
 }
