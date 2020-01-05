@@ -15,6 +15,9 @@ public class Raycast : MonoBehaviour
 
     public float rayDistance, distance, height;
     public float xMin, xMax;
+
+
+    public static int curPlatform;
     //public float yMin, yMax;
     // Start is called before the first frame update
     void Start()
@@ -54,8 +57,8 @@ public class Raycast : MonoBehaviour
 
         if (Input.GetKey(KeyCode.S))
         {
-            Vector3 minusHeight = new Vector3(transform.position.x, transform.position.y - height * 2, transform.position.z);
-            transform.position = Vector3.SmoothDamp(preHeight, minusHeight, ref velocity, smoothTime);
+            Vector3 helpPos = new Vector3(transform.position.x, transform.position.y - height * 2, transform.position.z);
+            transform.position = Vector3.SmoothDamp(preHeight, helpPos, ref velocity, smoothTime);
         }
         float x = Mathf.Clamp(player.transform.position.x, xMin, xMax);
         //float y = Mathf.Clamp(player.transform.position.y, yMin, yMax);
