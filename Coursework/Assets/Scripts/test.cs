@@ -8,7 +8,7 @@ public class test : MonoBehaviour
 {
     public TextMeshProUGUI curlapText;
     public TextMeshProUGUI lapText;
-    [SerializeField] private double timer = 0;
+    [SerializeField] public double timer = 0;
     // Start is called before the first frame update
     void Start()
     {

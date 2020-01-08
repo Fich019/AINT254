@@ -1,15 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class restartScene : MonoBehaviour
 {
+    public GameObject player;
+    public GameObject timer;
     
     // Start is called before the first frame update
     void Start()
     {
-        
         
     }
 
@@ -21,13 +21,12 @@ public class restartScene : MonoBehaviour
 
     private void OnCollisionEnter(Collision hit)
     {
-        string main = SceneManager.GetActiveScene().name;
+        Vector3 Checkpoint = player.GetComponent<Movement>().Checkpoint;
 
-        
-        if (hit.transform.tag == "Player")
+        if (hit.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(main, LoadSceneMode.Single);
-            //print("memes");
+            timer.GetComponent<test>().timer = 0;
+            player.transform.position = Checkpoint;
         }
     }
 }

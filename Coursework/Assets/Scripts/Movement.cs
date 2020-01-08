@@ -24,6 +24,8 @@ public class Movement : MonoBehaviour
     public bool isGrounded;
     public bool isSliding;
     Rigidbody rb;
+    public Vector3 Checkpoint;
+    public GameObject timer;
 
 
     // Start is called before the first frame update
@@ -32,7 +34,7 @@ public class Movement : MonoBehaviour
         startspeed = speed;
         player = this.gameObject;
         rb = GetComponent<Rigidbody>();
-        main = SceneManager.GetActiveScene().name;
+        //main = SceneManager.GetActiveScene().name;
         //jump = new Vector3(0.0f, jumpVel, 0.0f);
     }
 
@@ -120,7 +122,8 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(main, LoadSceneMode.Single);
+            timer.GetComponent<test>().timer = 0;
+            player.transform.position = Checkpoint;
         }
 
         //if (Input.GetKey(KeyCode.Space) && isGrounded == true)
@@ -142,5 +145,13 @@ public class Movement : MonoBehaviour
         rb.AddForce(Vector3.left * -slideSpeed, ForceMode.Impulse);
         rb.AddForce(Vector3.right * -slideSpeed, ForceMode.Impulse);
         print("memes");
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Checkpoint")
+        {
+            Checkpoint = player.transform.position;
+        }
     }
 }
