@@ -12,12 +12,16 @@ public class Raycast : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     public bool isGrounded;
 
+    
+
+    private static int platCount = 1;
+
 
     public float rayDistance, distance, height;
     public float xMin, xMax;
 
 
-    public static int curPlatform;
+    public static Vector3 curPlatform;
     //public float yMin, yMax;
     // Start is called before the first frame update
     void Start()
@@ -46,6 +50,7 @@ public class Raycast : MonoBehaviour
                 var hitPlatform = hit.transform;
                 Vector3 targetPosition = new Vector3(transform.position.x, (hit.transform.position.y + height + (hit.transform.localScale.y / 2)), transform.position.z);
                 transform.position = Vector3.SmoothDamp(preHeight, targetPosition, ref velocity, smoothTime);
+                curPlatform = player.transform.position;
             }
 
         }
@@ -53,10 +58,23 @@ public class Raycast : MonoBehaviour
         {
             Vector3 test = new Vector3(player.transform.position.x, preHeight.y, preHeight.z);
             transform.position = Vector3.SmoothDamp(preHeight, test, ref velocity, smoothTime);
+            curPlatform = player.transform.position;
         }
 
         if (Input.GetKey(KeyCode.S))
         {
+
+            //Vector3 helpPos = new Vector3(GameObject.FindWithTag(platCount.ToString()).transform.position.x, GameObject.FindWithTag(platCount.ToString()).transform.position.y, transform.position.z);
+            //if (isGrounded == true && player.GetComponent<Collider>().
+            //{
+            //    platCount++;
+            //    Debug.Log(platCount);
+            //    helpPos = new Vector3(GameObject.FindWithTag(platCount.ToString()).transform.position.x, GameObject.FindWithTag(platCount.ToString()).transform.position.y, transform.position.z);
+            //}
+            //else
+            //{
+            //    transform.position = Vector3.SmoothDamp(preHeight, helpPos, ref velocity, smoothTime);
+            //}
             Vector3 helpPos = new Vector3(transform.position.x, transform.position.y - height * 2, transform.position.z);
             transform.position = Vector3.SmoothDamp(preHeight, helpPos, ref velocity, smoothTime);
         }
