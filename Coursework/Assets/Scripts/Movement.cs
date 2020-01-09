@@ -52,6 +52,8 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //jump script, adds velocity to the player only if they are grounded to stop multiple jumps.
         if (Input.GetKey(KeyCode.Space) && isGrounded == true)
         {
             //rb.AddForce(Vector3.up * jumpVel, ForceMode.Impulse);
@@ -59,6 +61,7 @@ public class Movement : MonoBehaviour
             isGrounded = false;
         }
 
+        //Slide mechanic, allows the player to slide for a fixed distance along a surface by adding a force to their player.
         if (Input.GetKeyDown(KeyCode.LeftControl) && isGrounded == true && !isSliding)
         {
             slideTimer = 0;
@@ -106,13 +109,15 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
 
-
+        //Movement right
         if (Input.GetKey(KeyCode.D))
         {
             player.transform.Translate(speed, 0, 0);
             direction = Vector3.right;
 
         }
+
+        //Movement left
         if (Input.GetKey(KeyCode.A))
         {
             player.transform.Translate(-speed, 0, 0);
@@ -120,6 +125,7 @@ public class Movement : MonoBehaviour
 
         }
 
+        //resets the player back to the start aswell as the timer to 0.
         if (Input.GetKeyDown(KeyCode.R))
         {
             timer.GetComponent<test>().timer = 0;
@@ -133,6 +139,8 @@ public class Movement : MonoBehaviour
         //    isGrounded = false;
         //}
 
+        //adds a fall multiplier to make the player feel more responsive in the air and like
+        //they actually have a weight.
         if (rb.velocity.y < 0)
         {
             rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
@@ -147,6 +155,7 @@ public class Movement : MonoBehaviour
         print("memes");
     }
 
+    //saves checkpoint if they collide with the respective tagged object.
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Checkpoint")

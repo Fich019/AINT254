@@ -16,11 +16,14 @@ public class shiftMechanic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //disables the platforms that are currently active and enables ones hidden.
         if (Input.GetKeyDown(KeyCode.LeftShift) && active == true){
             shiftA.SetActive(true);
             shiftB.SetActive(false);
             active = false;
         }
+
+        //does the reverse of the code above.
         else if (Input.GetKeyDown(KeyCode.LeftShift) && active == false)
         {
             shiftA.SetActive(false);

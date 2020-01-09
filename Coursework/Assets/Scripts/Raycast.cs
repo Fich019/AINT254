@@ -40,6 +40,10 @@ public class Raycast : MonoBehaviour
         isGrounded = movement.isGrounded;
         Vector3 preHeight = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
+
+        //Checks if the player is grounded, if they are, send a raycast out the platform that they are currently
+        //on and store it as a variable. Then create a vector 3 with the data stored from the raycast and have the
+        //camera move the this new position via smoothdamp.
         if (isGrounded == true)
         {
             RaycastHit hit;
@@ -54,6 +58,9 @@ public class Raycast : MonoBehaviour
             }
 
         }
+        //This else statement will stop the camera from moving if the player is in the air, keeping the 
+        //camera in a fixed y and z position during airtime. It will follow the player along the x axis however
+
         else
         {
             Vector3 test = new Vector3(player.transform.position.x, preHeight.y, preHeight.z);
@@ -61,6 +68,9 @@ public class Raycast : MonoBehaviour
             curPlatform = player.transform.position;
         }
 
+
+        //Moves the camera below the current platform. Other code that is commented out work but not with the way I have set up the 
+        //shift mechanic and so without reworking the game from the ground up had to be left unused.
         if (Input.GetKey(KeyCode.S))
         {
 

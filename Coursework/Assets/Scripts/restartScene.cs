@@ -21,6 +21,10 @@ public class restartScene : MonoBehaviour
 
     private void OnCollisionEnter(Collision hit)
     {
+
+        //Restarts the scene using a checkpoint system by getting the players 
+        //current position when they have collided with a checkpointable platform and storing
+        //it in a varable.
         Vector3 Checkpoint = player.GetComponent<Movement>().Checkpoint;
 
         if (hit.gameObject.tag == "Player")
